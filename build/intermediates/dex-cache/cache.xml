@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/google-play-services.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dc8ba9e80c63fa62ffe4130ae3487a2ec25912ef">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-play-services_282720e21e6f1f07289b3bc5f1a9fdc44c813b84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/org.apache.http.legacy.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="49bc2d83ccb0cfe1dbc853e3ba80db0f950ed96d">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/org.apache.http.legacy_7e09fbdd4b5c71422c7299af1e5bb8e00b9a9d7b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/umeng-update-v2.6.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/umeng-update-v2.6.0.1_37dba0d7002bb41c24ecdeacff5f988cf0095d8e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/Vuforia.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="be3db5d282d7094986c342631085ca4d84c02603">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_1cf87155c06974eb0c770fecaa3abfe40682ef23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/android-support-multidex.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9a9d5c95d823ccda38f185a5f80ace6bfd61c0d5">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/android-support-multidex_8d15cc29781d52fb2416f1fe7a2872ec4802d51a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/VuforiaUnityPlayer.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="95f5205a17a7546c265d4a27d1e6f8be7b6f3f03">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/VuforiaUnityPlayer_ef9afdb5f9cb553b580f3ff3386f2e0fcf3e5827/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f14103971cfc36359dcf1d2f3142bbccd0c16ba8">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_09e0e3bc07e92cb02f5c0f1e9a599ee044ad3b8a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/HwPush_SDK_V2705_nomap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d68d22f9e4842e7ea73a667df0808babf6402704">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/HwPush_SDK_V2705_nomap_da0c1b0b7c2b709dffc17b58cf38d0a1ef2bee7d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/VuforiaMedia.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="30aec121536722b02442d61c5c431b6d04ab96aa">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/VuforiaMedia_7c8f181b27172244ef0c3acf8e87c9fccf543e5f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/hyphenatechat_3.2.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0cfb3fe4f6154c8869dbb7f2ac11e7774a956cba">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/hyphenatechat_3.2.3_e1dde218d99483f6bacc9013d60e0687eb5f89df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/parse-android-1.13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="58a7d54b6a4f28be11f0cecec93097eddf473e6f">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/parse-android-1.13.0_09cce3b6ef0bd29370962e9b304c221772e98c5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/umeng-analytics-v5.2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0f9eccf79ae6006e4346725b09114182dca0c023">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/umeng-analytics-v5.2.4_259d400ef0a1b11b8217128fa10bd824a0e7bcda/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/android-support-v4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="aaa9bc27cf2226482875d769ac45286970935b21">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/android-support-v4_dede062d9377252e90a8f79723ad0b35980e3c35/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/redpacketlibrary/build/intermediates/bundles/default/libs/volley-1.0.19.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8a7a97f2584bf42e53fc1ae4a02ea4a6070a999a">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/volley-1.0.19_f095e5d9ca99b549ff41745fe0217d53af5abc65/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/libs/unity-classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="70f91f02a166596e7391b89cd7e51575e325357b">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/2/unity-classes_df2b5676b5363e644482b8175e0b701b24ffa2e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/redpacketlibrary/build/intermediates/bundles/default/libs/redpacket-3.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c4a943a5c6ac6643810c8d007487a7087e06bd95">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/redpacket-3.3.1_ebd6f90574bac9d56215ce1b6974a9368fd893ba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/BaiduLBS_Android.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f1d3eb83228ace176170b6c5c9fa3b792011581b">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/BaiduLBS_Android_95f8736090597c22165aaec1f60f93d31e84396a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_2b94cef662b6d5525bfacffd68c18fddc8040413/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/glide-3.6.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="015a639bd9933f4f812be8bede14f14bd1bdea8b">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/glide-3.6.1_8b925788f5294986920b1ac3370be7854c63f938/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/redpacketlibrary/build/intermediates/bundles/default/libs/alipaySdk-20160516.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3dc967df12a04b5e1fd7641a5661d159b747297f">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/alipaySdk-20160516_b7c7a4840849c497c8a4fc4f7c844f97da078cd6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chenjing/Documents/android-workspace/ARCard/easeui/build/intermediates/bundles/default/libs/MiPush_SDK_Client_2_2_19.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6231c3f3409df7b3172bc5e89f68fbc6beec733e">
+        <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/8/MiPush_SDK_Client_2_2_19_4a762c9a6888280cf562edce292c8afa2d9bafd6/classes.dex" />
+    </item>
+
+</items>

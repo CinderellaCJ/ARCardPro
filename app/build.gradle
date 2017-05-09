@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        applicationId "com.cj.arcard"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86_64"
+        }
+/*
+        sourceSets {
+            main.jniLibs.srcDirs = ['libs']
+        }*/
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/unity-classes.jar')
+    compile files('libs/Vuforia.jar')
+    compile files('libs/VuforiaMedia.jar')
+    compile files('libs/VuforiaUnityPlayer.jar')
+    compile project(':redpacketlibrary')
+    compile project(':easeui')
+    //bmob
+    //butterknife
+    //二维码扫描
+    compile files('libs/android-support-multidex.jar')
+    compile files('libs/parse-android-1.13.0.jar')
+
+
+    compile 'cn.bmob.android:http-legacy:1.0'
+    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+    compile 'com.parse.bolts:bolts-android:1.2.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
+}
