@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cj.arcard.DemoHelper;
 import com.cj.arcard.R;
+import com.cj.arcard.utils.PreferenceManager;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.EaseUser;
@@ -53,8 +54,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		initListener();
 
 		//获取当前用户头像
-		//avator = PreferenceManager.getInstance().getCurrentUserAvatorUrl();
-		//Glide.with(UserProfileActivity.this).load(avator).placeholder(R.drawable.em_default_avatar).into(headAvatar);
+		avator = PreferenceManager.getInstance().getCurrentUserAvatorUrl();
+		Glide.with(UserProfileActivity.this).load(avator).placeholder(R.drawable.em_default_avatar).into(headAvatar);
 	}
 	
 	private void initView() {

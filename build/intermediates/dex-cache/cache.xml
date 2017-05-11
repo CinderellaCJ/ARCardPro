@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f14103971cfc36359dcf1d2f3142bbccd0c16ba8">
+        sha1="3d3f55b83d30b4b971cf3be892fcaa25fd358541">
         <dex dex="/Users/chenjing/Documents/android-workspace/ARCard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_09e0e3bc07e92cb02f5c0f1e9a599ee044ad3b8a/classes.dex" />
     </item>
     <item

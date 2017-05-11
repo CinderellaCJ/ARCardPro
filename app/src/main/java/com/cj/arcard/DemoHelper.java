@@ -775,13 +775,17 @@ public class DemoHelper {
             @Override
             public void done(List<MyUser> list, BmobException e) {
                 try {
-                    String myUser = list.get(0).getAvatorUrl();
+                    String myUser = list.get(0).getUserAvator().getUrl();
                     finalUser.setAvatar(myUser);
+                    String myNickname = list.get(0).getUserNickname();
+                    finalUser.setNickname(myNickname);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
         });
+
+
 
         return user;
 	}

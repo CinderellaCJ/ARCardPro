@@ -32,6 +32,7 @@ import com.cj.arcard.R;
 import com.cj.arcard.bean.MyUser;
 import com.cj.arcard.db.DemoDBManager;
 import com.cj.arcard.utils.LogUtil;
+import com.cj.arcard.utils.PreferenceManager;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
@@ -215,14 +216,14 @@ public class LoginActivity extends BaseActivity {
 						@Override
 						public void done(MyUser object,BmobException e) {
 							if(e==null){
-								LogUtil.d("avatorUrl",object.getAvatorUrl());
-								DemoHelper.getInstance().setCurrentUserAvatorUrl(object.getAvatorUrl());
+								DemoHelper.getInstance().setCurrentUserAvatorUrl(object.getUserAvator().getUrl());
+								//DemoHelper.getInstance().setCurentBmobUserName(object.getUserNickname());
+								PreferenceManager.getInstance().setCurrentBmobUserName(object.getUserNickname());
 							}else{
 								LogUtil.d(e.getMessage() + e.getErrorCode());
 							}
 						}
 					});
-					DemoHelper.getInstance().setCurentBmobUserName(currentUsername);
 				}else {
 					LogUtil.d(e.getMessage() + e.getErrorCode());
 				}

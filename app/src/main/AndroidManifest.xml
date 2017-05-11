@@ -522,16 +522,20 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="" />
-        <!--
-               <meta-data
-             android:name="com.baidu.lbsapi.API_KEY"
-             android:value="3ecea51f560650b1ed8a4b99808f52e8" />
-        -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="5XfNLToE4zrFUmfPUyavRP0XV3PXcmkR" />
+
         <activity android:name=".ui.ar.ARActivity" />
-        <activity android:name=".ui.home.MsgEditActivity"
+        <activity
+            android:name=".ui.home.MsgEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.LogoutActivity"
+            android:theme="@style/horizontal_slide" />
+        <activity android:name=".ui.ar.ARVideoActivity"></activity>
     </application>
 
 </manifest>

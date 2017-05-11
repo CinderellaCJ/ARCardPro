@@ -9,6 +9,7 @@ import cn.bmob.v3.datatype.BmobFile;
 
 public class Card extends BmobObject {
     private MyUser sender;
+    private MyUser receiver;
     private CardTemplate template;
     private MyUser myUser;
     private BmobFile cardVideo;
@@ -62,5 +63,13 @@ public class Card extends BmobObject {
 
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
+    }
+
+    public MyUser getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(MyUser receiver) {
+        this.receiver = receiver;
     }
 }

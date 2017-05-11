@@ -22,6 +22,7 @@
             android:layout_toRightOf="@id/card_location"
             android:layout_marginLeft="5dp"
             android:textColor="@color/colorBlack"
+            android:textSize="15dp"
             android:text="雷峰夕照"/>
 
         <ImageView
@@ -38,6 +39,7 @@
             android:layout_alignTop="@+id/card_img"
             android:layout_toRightOf="@id/card_img"
             android:textColor="@color/colorBlack"
+            android:textSize="14dp"
             android:text="描述"/>
 
         <ImageView
@@ -64,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/card_receiver"
-            android:layout_alignTop="@id/card_receiver"/>
+            android:layout_alignTop="@id/card_receiver"
+            />
 
     </RelativeLayout>
 
@@ -97,7 +100,7 @@
             android:background="@drawable/card_btn_bg"
             android:paddingLeft="10dp"
             android:textSize="14dp"
-            android:text="寄语扫描"
+            android:text="寄语编辑"
            />
     </LinearLayout>
 

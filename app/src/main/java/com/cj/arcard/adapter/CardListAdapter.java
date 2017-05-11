@@ -68,6 +68,7 @@ public class CardListAdapter extends BaseAdapter {
         final CardInfo cardInfo = mCardArrayList.get(position);
         viewHolder.cardName.setText(cardInfo.getCardName());
         viewHolder.cardDescribe.setText(cardInfo.getCardDescribe());
+        viewHolder.cardReceiverName.setText(cardInfo.getCardReceiverName());
         Glide.with(mContext).load(cardInfo.getCardPictureUrl()).into(viewHolder.cardImg);
         viewHolder.arMessageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,16 +77,16 @@ public class CardListAdapter extends BaseAdapter {
                 try {
                     String videoUrl = cardInfo.getCardVideoUrl();
                     LogUtil.d(videoUrl);
-                    if (videoUrl!=null){
-                        intent.putExtra("videoUrl",videoUrl);
+                    if (videoUrl != null) {
+                        intent.putExtra("videoUrl", videoUrl);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 String cardId = cardInfo.getCardId();
-                intent.putExtra("cardId",cardId);
+                intent.putExtra("cardId", cardId);
                 String receiverName = cardInfo.getCardReceiverName();
-                intent.putExtra("receiverName",receiverName);
+                intent.putExtra("receiverName", receiverName);
                 mContext.startActivity(intent);
 
             }
@@ -100,7 +101,6 @@ public class CardListAdapter extends BaseAdapter {
         return view;
     }
 
-
     static class ViewHolder {
         @BindView(R.id.card_name)
         TextView cardName;
@@ -112,6 +112,9 @@ public class CardListAdapter extends BaseAdapter {
         Button arMessageEdit;
         @BindView(R.id.ar_scan)
         Button arScan;
+        @BindView(R.id.card_receiver_name)
+        TextView cardReceiverName;
+
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

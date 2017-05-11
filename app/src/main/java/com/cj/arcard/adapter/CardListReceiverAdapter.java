@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide;
 import com.cj.arcard.R;
 import com.cj.arcard.bean.CardInfo;
 import com.cj.arcard.ui.ar.ARActivity;
-import com.cj.arcard.ui.home.MsgEditActivity;
-import com.cj.arcard.utils.LogUtil;
+import com.cj.arcard.ui.ar.ARVideoActivity;
+import com.cj.arcard.utils.ToastUtil;
 
 import java.util.ArrayList;
 
@@ -57,7 +57,7 @@ public class CardListReceiverAdapter extends BaseAdapter {
         View view;
         ViewHolder viewHolder;
         if (convertView == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_card_list, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_card_list_receiver, null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         } else {
@@ -69,25 +69,22 @@ public class CardListReceiverAdapter extends BaseAdapter {
         viewHolder.cardName.setText(cardInfo.getCardName());
         viewHolder.cardDescribe.setText(cardInfo.getCardDescribe());
         Glide.with(mContext).load(cardInfo.getCardPictureUrl()).into(viewHolder.cardImg);
-        viewHolder.arMessageEdit.setOnClickListener(new View.OnClickListener() {
+
+        viewHolder.arMessageScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, MsgEditActivity.class);
+                Intent intent = new Intent(mContext, ARVideoActivity.class);
                 try {
                     String videoUrl = cardInfo.getCardVideoUrl();
-                    LogUtil.d(videoUrl);
                     if (videoUrl!=null){
                         intent.putExtra("videoUrl",videoUrl);
+                    }else {
+                        ToastUtil.showShort(mContext,"该明信片未被上传视频");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                String cardId = cardInfo.getCardId();
-                intent.putExtra("cardId",cardId);
-                String receiverName = cardInfo.getCardReceiverName();
-                intent.putExtra("receiverName",receiverName);
                 mContext.startActivity(intent);
-
             }
         });
 
@@ -108,10 +105,11 @@ public class CardListReceiverAdapter extends BaseAdapter {
         ImageView cardImg;
         @BindView(R.id.card_describe)
         TextView cardDescribe;
-        @BindView(R.id.ar_message_edit)
-        Button arMessageEdit;
         @BindView(R.id.ar_scan)
         Button arScan;
+        @BindView(R.id.ar_message_scan)
+        Button arMessageScan;
+
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

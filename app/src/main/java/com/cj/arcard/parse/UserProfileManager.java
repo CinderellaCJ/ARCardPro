@@ -141,11 +141,31 @@ public class UserProfileManager {
 	}
 
 	public boolean updateCurrentUserNickName(final String nickname) {
-		boolean isSuccess = ParseManager.getInstance().updateParseNickName(nickname);
+		//boolean isSuccess = ParseManager.getInstance().updateParseNickName(nickname);
+		boolean isSuccess = uploadNick(nickname);
 		if (isSuccess) {
 			setCurrentUserNick(nickname);
+			PreferenceManager.getInstance().setCurrentBmobUserName(nickname);
 		}
 		return isSuccess;
+	}
+
+	private boolean uploadNick(String nickname) {
+		String currentUserID = BmobUser.getCurrentUser(MyUser.class).getObjectId();
+		MyUser myUser = new MyUser();
+		myUser.setUserNickname(nickname);
+		myUser.update(currentUserID, new UpdateListener() {
+			@Override
+			public void done(BmobException e) {
+				if (e == null){
+					LogUtil.d("suss");
+				}else {
+					LogUtil.d(e.getMessage()+e.getErrorCode());
+				}
+
+			}
+		});
+		return true;
 	}
 
 	public String uploadUserAvatar(final byte[] data) {
@@ -215,14 +235,13 @@ public class UserProfileManager {
 					setCurrentUserAvatar(avatorUrl);
 					LogUtil.d(avatorUrl);
 					String currentUserID = BmobUser.getCurrentUser(MyUser.class).getObjectId();
-					LogUtil.d("currentUserID"+currentUserID);
-
 
 					getCurrentUserInfo().setAvatar(avatorUrl);
 					//DemoHelper.getInstance().setCurrentUserAvatorUrl(avatorUrl);
 
+					PreferenceManager.getInstance().setCurrentUserAvatorUrl(avatorUrl);
 					MyUser myUser = new MyUser();
-					myUser.setAvatorUrl(avatorUrl);
+					myUser.setUserAvator(bmobFile);
 					myUser.update(currentUserID, new UpdateListener() {
 						@Override
 						public void done(BmobException e) {

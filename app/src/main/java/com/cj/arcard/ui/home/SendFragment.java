@@ -1,6 +1,7 @@
 package com.cj.arcard.ui.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,8 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.UpdateListener;
 
+import static com.cj.arcard.R.id.scan;
+
 /**
  * Created by Administrator on 2017/3/20.
  */
@@ -48,6 +51,8 @@ public class SendFragment extends Fragment {
 
     private ImageView scanImage;
     private MyUser currentUser;
+    private String scanId;
+    private String cardSender;
 
     @Nullable
     @Override
@@ -61,7 +66,7 @@ public class SendFragment extends Fragment {
         //listView设置headView
         View headView = inflater.inflate(R.layout.fragment_headview, null);
 
-        scanImage = (ImageView) headView.findViewById(R.id.scan);
+        scanImage = (ImageView) headView.findViewById(scan);
         scanImage.setOnClickListener(new scanListener());
 
         mCardArrayList = new ArrayList<>();
@@ -82,6 +87,7 @@ public class SendFragment extends Fragment {
         BmobQuery<Card> cardQuery = new BmobQuery<>();
         cardQuery.addWhereEqualTo("sender",currentUser);
         cardQuery.include("template");
+        cardQuery.order("-createdAt");
         cardQuery.findObjects(new FindListener<Card>() {
             @Override
             public void done(List<Card> list, BmobException e) {
@@ -97,6 +103,7 @@ public class SendFragment extends Fragment {
                         try {
                             cardInfo.setCardReceiverName(cardList.getReceiverName());
                             cardInfo.setCardVideoUrl(cardList.getCardVideo().getUrl());
+                            cardInfo.setCardReceiverName(cardList.getReceiverName());
                         } catch (Exception e1) {
                             e1.printStackTrace();
                         }
@@ -130,8 +137,41 @@ public class SendFragment extends Fragment {
         if (result.getContents() == null) {
             ToastUtil.showShort(getActivity(), "您取消了扫描");
         } else {
-            ToastUtil.showShort(getActivity(),result.getContents());
-            String scanId = result.getContents();
+            String scanResult = Uri.parse(result.getContents()).getQueryParameter("QRCode");
+            LogUtil.d("scanResult:"+scanResult);
+
+            switch (scanResult){
+                case "5837feb4a22b9d006db993bf":
+                    scanId = "ECLsgVVg";
+                    break;
+                case "5837fc67128fe1006aa966ae":
+                    scanId = "j44wrqqr";
+                    break;
+                case "583cf29cac502e006eae8075":
+                    scanId = "j44wrqqr";
+                    break;
+                case "583cf7e5a22b9d006c1ad399":
+                    scanId = "g3XLjHHj";
+                    break;
+                case "583cf7020ce463006bab9901":
+                    scanId = "69vlpaap";
+                    break;
+                case "583cf871c59e0d006b478759":
+                    scanId = "wVhlTSST";
+                    break;
+                case "583cf3d8c59e0d006b4765a5":
+                    scanId = "l5L4PCCP";
+                    break;
+                case "583cf5daa22b9d006a90d36e":
+                    scanId = "CwuohZZh";
+                    break;
+                case "583cf0e1128fe1006ac3b96b":
+                    scanId = "Az1pWIIW";
+                    break;
+                case "5837fffaac502e006c130180":
+                    scanId = "uVkI0880";
+                    break;
+            }
 
             BmobQuery<Card> query = new BmobQuery<>();
             query.include("template");
@@ -139,25 +179,33 @@ public class SendFragment extends Fragment {
                 @Override
                 public void done(Card card, BmobException e) {
                     if (e == null){
-                        LogUtil.d(card.getTemplate().getCardName());
-                        //添加一条数据
-                        CardTemplate template = card.getTemplate();
-                        CardInfo cardInfo = new CardInfo();
-                        cardInfo.setCardName(template.getCardName());
-                        cardInfo.setCardDescribe(template.getCardDescribe());
-                        cardInfo.setCardPictureUrl(template.getCardPicture().getUrl());
-                        mCardArrayList.add(0,cardInfo);
-                        mCardListAdapter.notifyDataSetChanged();
+                        try {
+                            cardSender = card.getSender().getObjectId();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                        if (cardSender == null){
+                            //添加一条数据
+                            CardTemplate template = card.getTemplate();
+                            CardInfo cardInfo = new CardInfo();
+                            cardInfo.setCardName(template.getCardName());
+                            cardInfo.setCardDescribe(template.getCardDescribe());
+                            cardInfo.setCardPictureUrl(template.getCardPicture().getUrl());
+                            mCardArrayList.add(0,cardInfo);
+                            mCardListAdapter.notifyDataSetChanged();
 
-                        //将当前用户插入到sender
-                        card.setSender(currentUser);
-                        card.update(new UpdateListener() {
-                            @Override
-                            public void done(BmobException e) {
-                                LogUtil.d("suce");
+                            //将当前用户插入到sender
+                            card.setSender(currentUser);
+                            card.update(new UpdateListener() {
+                                @Override
+                                public void done(BmobException e) {
+                                    LogUtil.d("suce");
 
-                            }
-                        });
+                                }
+                            });
+                        }else {
+                            ToastUtil.showShort(getContext(),"您已添加过此张明信片");
+                        }
                     }else {
                         LogUtil.d("失败："+e.getMessage() + e.getErrorCode());
                     }

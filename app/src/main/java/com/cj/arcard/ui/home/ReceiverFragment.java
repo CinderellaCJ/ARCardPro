@@ -1,6 +1,7 @@
 package com.cj.arcard.ui.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -47,6 +48,8 @@ public class ReceiverFragment extends Fragment {
 
     private ImageView scanImage;
     private MyUser currentUser;
+    private String scanId;
+    private String cardReceiver;
 
     @Nullable
     @Override
@@ -79,12 +82,14 @@ public class ReceiverFragment extends Fragment {
 
     private void initData() {
         BmobQuery<Card> cardQuery = new BmobQuery<>();
-        cardQuery.addWhereEqualTo("sender",currentUser);
+        cardQuery.addWhereEqualTo("receiver",currentUser);
         cardQuery.include("template");
+        cardQuery.order("-createdAt");
         cardQuery.findObjects(new FindListener<Card>() {
             @Override
             public void done(List<Card> list, BmobException e) {
                 if (e == null){
+                    LogUtil.d(list.toString());
                     for (Card cardList : list){
                         CardTemplate template = cardList.getTemplate();
                         CardInfo cardInfo = new CardInfo();
@@ -129,34 +134,76 @@ public class ReceiverFragment extends Fragment {
         if (result.getContents() == null) {
             ToastUtil.showShort(getActivity(), "您取消了扫描");
         } else {
-            ToastUtil.showShort(getActivity(),result.getContents());
-            String scanId = result.getContents();
+            String scanResult = Uri.parse(result.getContents()).getQueryParameter("QRCode");
+            LogUtil.d("scanResult"+scanResult);
 
+            switch (scanResult){
+                case "5837feb4a22b9d006db993bf":
+                    scanId = "ECLsgVVg";
+                    break;
+                case "5837fc67128fe1006aa966ae":
+                    scanId = "j44wrqqr";
+                    break;
+                case "583cf29cac502e006eae8075":
+                    scanId = "j44wrqqr";
+                    break;
+                case "583cf7e5a22b9d006c1ad399":
+                    scanId = "g3XLjHHj";
+                    break;
+                case "583cf7020ce463006bab9901":
+                    scanId = "69vlpaap";
+                    break;
+                case "583cf871c59e0d006b478759":
+                    scanId = "wVhlTSST";
+                    break;
+                case "583cf3d8c59e0d006b4765a5":
+                    scanId = "l5L4PCCP";
+                    break;
+                case "583cf5daa22b9d006a90d36e":
+                    scanId = "CwuohZZh";
+                    break;
+                case "583cf0e1128fe1006ac3b96b":
+                    scanId = "Az1pWIIW";
+                    break;
+                case "5837fffaac502e006c130180":
+                    scanId = "uVkI0880";
+                    break;
+            }
+
+            LogUtil.d("scanId"+scanId);
             BmobQuery<Card> query = new BmobQuery<>();
             query.include("template");
             query.getObject(scanId, new QueryListener<Card>() {
                 @Override
                 public void done(Card card, BmobException e) {
                     if (e == null){
-                        LogUtil.d(card.getTemplate().getCardName());
-                        //添加一条数据
-                        CardTemplate template = card.getTemplate();
-                        CardInfo cardInfo = new CardInfo();
-                        cardInfo.setCardName(template.getCardName());
-                        cardInfo.setCardDescribe(template.getCardDescribe());
-                        cardInfo.setCardPictureUrl(template.getCardPicture().getUrl());
-                        mCardArrayList.add(0,cardInfo);
-                        mCardListAdapter.notifyDataSetChanged();
+                        try {
+                            cardReceiver = card.getReceiver().getObjectId();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                        if (cardReceiver == null){
+                            //添加一条数据
+                            CardTemplate template = card.getTemplate();
+                            CardInfo cardInfo = new CardInfo();
+                            cardInfo.setCardName(template.getCardName());
+                            cardInfo.setCardDescribe(template.getCardDescribe());
+                            cardInfo.setCardPictureUrl(template.getCardPicture().getUrl());
+                            mCardArrayList.add(0,cardInfo);
+                            mCardListAdapter.notifyDataSetChanged();
 
-                        //将当前用户插入到sender
-                        card.setSender(currentUser);
-                        card.update(new UpdateListener() {
-                            @Override
-                            public void done(BmobException e) {
-                                LogUtil.d("suce");
+                            //将当前用户插入到sender
+                            card.setReceiver(currentUser);
+                            card.update(new UpdateListener() {
+                                @Override
+                                public void done(BmobException e) {
+                                    LogUtil.d("suce");
 
-                            }
-                        });
+                                }
+                            });
+                        }else {
+                            ToastUtil.showShort(getContext(),"您已添加过此张明信片");
+                        }
                     }else {
                         LogUtil.d("失败："+e.getMessage() + e.getErrorCode());
                     }

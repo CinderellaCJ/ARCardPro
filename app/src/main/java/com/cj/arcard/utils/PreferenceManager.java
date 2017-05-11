@@ -235,6 +235,10 @@ public class PreferenceManager {
 		editor.apply();
 	}
 
+	public String getCurrentBmobUserName(){
+		return mSharedPreferences.getString(BMOB_CURRENTUSER_USERNAME, null);
+	}
+
 	public String getCurrentUsername(){
 		return mSharedPreferences.getString(SHARED_KEY_CURRENTUSER_USERNAME, null);
 	}
